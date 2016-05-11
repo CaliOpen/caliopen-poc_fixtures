@@ -1,0 +1,9 @@
+cli:
+    build: ../cli
+    links:
+        - redis:redis.dev.caliopen.org
+        - cassandra:cassandra.dev.caliopen.org
+        - elasticsearch:es.dev.caliopen.org
+    volumes:
+      - ./fixtures:/usr/share/caliopen/fixtures
+    command: ['caliopen']
