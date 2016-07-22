@@ -5,5 +5,5 @@ cli:
         - cassandra:cassandra.dev.caliopen.org
         - elasticsearch:es.dev.caliopen.org
     volumes:
-      - ./fixtures:/usr/share/caliopen/fixtures
+      - ../poc_fixtures/fixtures:/usr/share/caliopen/poc_fixtures
     command: ['caliopen']

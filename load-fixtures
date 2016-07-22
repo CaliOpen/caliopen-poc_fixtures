@@ -8,9 +8,9 @@ DEV_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../bin/" && pwd )"
 COMPOSE_CMD="docker-compose"
 CALIOPEN_CONFIG_PATH=/caliopen.yaml
 CALIOPEN_DEV_DIR=/usr/share/caliopen/bin
-CALIOPEN_FIXTURES_DIR=/usr/share/caliopen/fixtures
+CALIOPEN_FIXTURES_DIR=/usr/share/caliopen/poc_fixtures
 
 cd $DEV_DIR
-docker-compose -f ${COMPOSE_FILE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} setup
-docker-compose -f ${COMPOSE_FILE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} create_user -e john@mail.caliopen.me -g John -f Dœuf -p 123456
-docker-compose -f ${COMPOSE_FILE} -f ${COMPOSE_FILE_OVERIDE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} import -e john@mail.caliopen.me -f mbox -p "${CALIOPEN_FIXTURES_DIR}/john@mail.caliopen.me/mbox/"
+${COMPOSE_CMD} -f ${COMPOSE_FILE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} setup
+${COMPOSE_CMD} -f ${COMPOSE_FILE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} create_user -e john@mail.caliopen.me -g John -f Dœuf -p 123456
+${COMPOSE_CMD} -f ${COMPOSE_FILE} -f ${COMPOSE_FILE_OVERIDE} run cli caliopen -f ${CALIOPEN_CONFIG_PATH} import -e john@mail.caliopen.me -f mbox -p "${CALIOPEN_FIXTURES_DIR}/john@mail.caliopen.me/mbox/"
